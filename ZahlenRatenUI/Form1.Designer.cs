@@ -33,6 +33,7 @@
             lblMeldung = new Label();
             lblVersuche = new Label();
             btnNewGame = new Button();
+            lblhuk = new Label();
             SuspendLayout();
             // 
             // txtTipp
@@ -81,12 +82,22 @@
             btnNewGame.UseVisualStyleBackColor = true;
             btnNewGame.Click += btnNewGame_Click;
             // 
+            // lblhuk
+            // 
+            lblhuk.AutoSize = true;
+            lblhuk.Location = new Point(789, 156);
+            lblhuk.Name = "lblhuk";
+            lblhuk.Size = new Size(59, 25);
+            lblhuk.TabIndex = 6;
+            lblhuk.Text = "label1";
+            // 
             // Zahlraten
             // 
             AcceptButton = btnRaten;
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1548, 732);
+            Controls.Add(lblhuk);
             Controls.Add(btnNewGame);
             Controls.Add(lblVersuche);
             Controls.Add(lblMeldung);
@@ -105,5 +116,6 @@
         private Label lblMeldung;
         private Label lblVersuche;
         private Button btnNewGame;
+        private Label lblhuk;
     }
 }

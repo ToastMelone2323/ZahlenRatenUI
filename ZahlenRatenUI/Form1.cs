@@ -41,6 +41,20 @@ namespace ZahlenRatenUI
                 {
                     lblMeldung.Text = "Die Zahl ist zu groß";
                 }
+
+                string huk = HeisKalt(number, randomNumber);
+                if (huk == "sehr")
+                {
+                    lblhuk.Text = "Du bist sehr nah dran";
+                }
+                else if (huk == "nah")
+                {
+                    lblhuk.Text = "Du bist nah dran";
+                }
+                else
+                {
+                    lblhuk.Text = "";
+                }
             }
             else
             {
@@ -74,8 +88,24 @@ namespace ZahlenRatenUI
             btnRaten.Enabled = true;
             lblMeldung.Text = "Willkommen";
             lblVersuche.Text = $"Versuche: {versuche}";
+            lblhuk.Text = "";
             txtTipp.Text = "";
             txtTipp.Focus();
+            this.Text = $"Zahl Raten (Lösung: {randomNumber})";
+        }
+
+        static string HeisKalt(int number, int randomNumber)
+        {
+            int diff = Math.Abs(number - randomNumber);
+            if (diff < 6 && number != randomNumber)
+            {
+                return "sehr";
+            }
+            else if (diff < 11 && number != randomNumber)
+            {
+                return "nah";
+            }
+            else return "";
         }
 
         private void btnNewGame_Click(object sender, EventArgs e)
