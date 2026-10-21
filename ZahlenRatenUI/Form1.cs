@@ -8,6 +8,9 @@ namespace ZahlenRatenUI
         int versuche;
         int maxVersuche;
         int randomNumber;
+        int siege;
+        int loss;
+        int bestLeistung;
         public Zahlraten()
         {
             InitializeComponent();
@@ -33,6 +36,12 @@ namespace ZahlenRatenUI
                 if (outcome == "gleich")
                 {
                     lblMeldung.Text = $"Du hast die Zahl gefunden und {versuche} Versuche gebraucht";
+                    siege++;
+                    if (bestLeistung == 0 || versuche < bestLeistung)
+                    {
+                        bestLeistung = versuche;
+                    }
+                    ZeigeStatistik();
                     btnRaten.Enabled = false;
                 }
                 else if (outcome == "kleiner")
@@ -48,6 +57,8 @@ namespace ZahlenRatenUI
                 {
                     btnRaten.Enabled = false;
                     lblMeldung.Text = $"Du hast keine Versuche mehr. Die zahl war: {randomNumber}";
+                    loss++;
+                    ZeigeStatistik();
                 }
 
                 string huk = HeisKalt(number, randomNumber);
@@ -112,6 +123,7 @@ namespace ZahlenRatenUI
             txtTipp.Text = "";
             txtTipp.Focus();
             this.Text = $"Zahl Raten (Lösung: {randomNumber})";
+            ZeigeStatistik();
 
         }
 
@@ -129,6 +141,18 @@ namespace ZahlenRatenUI
             else return "";
         }
 
+        private void ZeigeStatistik()
+        {
+            if (bestLeistung > 0)
+            {
+                lblStatistik.Text = $"Deine bestleistung: {bestLeistung} Siege: {siege} Niederlagen: {loss}";
+            }
+            else
+            {
+                lblStatistik.Text = $"Siege: {siege} Niederlange: {loss}";
+            }
+        }
+
         private void btnNewGame_Click(object sender, EventArgs e)
         {
             NeuesSpiel();
@@ -137,6 +161,11 @@ namespace ZahlenRatenUI
         private void cmbSchwierigkeit_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             NeuesSpiel();
+        }
+
+        private void Zahlraten_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
