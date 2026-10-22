@@ -18,11 +18,6 @@ namespace ZahlenRatenUI
             NeuesSpiel();
         }
 
-        private void lblMeldung_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnRaten_Click(object sender, EventArgs e)
         {
             int number;
@@ -56,7 +51,7 @@ namespace ZahlenRatenUI
                 if (versuche >= maxVersuche && number != randomNumber)
                 {
                     btnRaten.Enabled = false;
-                    lblMeldung.Text = $"Du hast keine Versuche mehr. Die zahl war: {randomNumber}";
+                    lblMeldung.Text = $"Du hast keine Versuche mehr. Die Zahl war: {randomNumber}";
                     loss++;
                     ZeigeStatistik();
                 }
@@ -122,7 +117,6 @@ namespace ZahlenRatenUI
             lblhuk.Text = "";
             txtTipp.Text = "";
             txtTipp.Focus();
-            this.Text = $"Zahl Raten (Lösung: {randomNumber})";
             ZeigeStatistik();
 
         }
@@ -145,11 +139,11 @@ namespace ZahlenRatenUI
         {
             if (bestLeistung > 0)
             {
-                lblStatistik.Text = $"Deine bestleistung: {bestLeistung} Siege: {siege} Niederlagen: {loss}";
+                lblStatistik.Text = $"Deine Bestleistung: {bestLeistung} Siege: {siege} Niederlagen: {loss}";
             }
             else
             {
-                lblStatistik.Text = $"Siege: {siege} Niederlange: {loss}";
+                lblStatistik.Text = $"Siege: {siege} Niederlagen: {loss}";
             }
         }
 
@@ -161,11 +155,6 @@ namespace ZahlenRatenUI
         private void cmbSchwierigkeit_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             NeuesSpiel();
-        }
-
-        private void Zahlraten_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

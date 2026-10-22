@@ -63,7 +63,6 @@
             lblMeldung.Size = new Size(83, 25);
             lblMeldung.TabIndex = 2;
             lblMeldung.Text = "meldung";
-            lblMeldung.Click += lblMeldung_Click;
             // 
             // lblVersuche
             // 
@@ -129,7 +128,6 @@
             Controls.Add(txtTipp);
             Name = "Zahlraten";
             Text = "Zahl Raten";
-            Load += Zahlraten_Load;
             ResumeLayout(false);
             PerformLayout();
         }
