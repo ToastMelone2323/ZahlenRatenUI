@@ -34,6 +34,7 @@ namespace ZahlenRatenUI
                     lblMeldung.Text = $"Du hast die Zahl gefunden und {versuche} Versuche gebraucht";
                     siege++;
                     bestenListe.Add(new Ergebnis { Versuche = versuche, Schwiereigkeit = cmbSchwierigkeit.SelectedItem.ToString(), Datum = DateTime.Now });
+                    ZeigeBestenliste();
                     if (bestLeistung == 0 || versuche < bestLeistung)
                     {
                         bestLeistung = versuche;
@@ -152,10 +153,11 @@ namespace ZahlenRatenUI
         public void ZeigeBestenliste()
         {
             lstBestenliste.Items.Clear();
-            foreach (Ergebnis.Add in List<bestenListe>)
+            foreach (Ergebnis eintrag in bestenListe)
             {
-                lstBestenliste.Items.Add(lstBestenlistes);
+                lstBestenliste.Items.Add(eintrag);
             }
+        }
 
         private void btnNewGame_Click(object sender, EventArgs e)
         {
