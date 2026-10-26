@@ -1,4 +1,7 @@
 using System;
+using System.Linq;
+using System.IO;
+using System.Text.Json;
 
 namespace ZahlenRatenUI
 {
@@ -12,6 +15,7 @@ namespace ZahlenRatenUI
         int loss;
         int bestLeistung;
         List<Ergebnis> bestenListe = new List<Ergebnis>();
+        string dataiPfad = "bestenliste.json";
         public Zahlraten()
         {
             InitializeComponent();
@@ -35,6 +39,7 @@ namespace ZahlenRatenUI
                     siege++;
                     bestenListe.Add(new Ergebnis { Versuche = versuche, Schwiereigkeit = cmbSchwierigkeit.SelectedItem.ToString(), Datum = DateTime.Now });
                     ZeigeBestenliste();
+                    SpeicherBestenliste();
                     if (bestLeistung == 0 || versuche < bestLeistung)
                     {
                         bestLeistung = versuche;
@@ -153,7 +158,7 @@ namespace ZahlenRatenUI
         public void ZeigeBestenliste()
         {
             lstBestenliste.Items.Clear();
-            foreach (Ergebnis eintrag in bestenListe)
+            foreach (Ergebnis eintrag in bestenListe.OrderBy(x => x.Versuche).ThenBy(x => x.Schwiereigkeit))
             {
                 lstBestenliste.Items.Add(eintrag);
             }
@@ -182,6 +187,11 @@ namespace ZahlenRatenUI
         private void lstBestenliste_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+        private void SpeicherBestenliste()
+        {
+            string json = JsonSerializer.Serialize(bestenListe);
+            File.WriteAllText(dataiPfad, json);
         }
     }
 }

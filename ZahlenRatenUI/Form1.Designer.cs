@@ -44,7 +44,7 @@
             txtTipp.BorderStyle = BorderStyle.FixedSingle;
             txtTipp.Cursor = Cursors.IBeam;
             txtTipp.ForeColor = SystemColors.ActiveCaptionText;
-            txtTipp.Location = new Point(467, 223);
+            txtTipp.Location = new Point(545, 322);
             txtTipp.Name = "txtTipp";
             txtTipp.Size = new Size(101, 31);
             txtTipp.TabIndex = 0;
@@ -52,7 +52,7 @@
             // btnRaten
             // 
             btnRaten.ForeColor = SystemColors.ActiveCaptionText;
-            btnRaten.Location = new Point(467, 298);
+            btnRaten.Location = new Point(545, 376);
             btnRaten.Name = "btnRaten";
             btnRaten.Size = new Size(101, 37);
             btnRaten.TabIndex = 1;
@@ -64,7 +64,7 @@
             // 
             lblMeldung.AutoSize = true;
             lblMeldung.ForeColor = Color.White;
-            lblMeldung.Location = new Point(775, 245);
+            lblMeldung.Location = new Point(177, 319);
             lblMeldung.Name = "lblMeldung";
             lblMeldung.Size = new Size(83, 25);
             lblMeldung.TabIndex = 2;
@@ -74,7 +74,7 @@
             // 
             lblVersuche.AutoSize = true;
             lblVersuche.ForeColor = Color.White;
-            lblVersuche.Location = new Point(775, 111);
+            lblVersuche.Location = new Point(545, 280);
             lblVersuche.Name = "lblVersuche";
             lblVersuche.Size = new Size(101, 25);
             lblVersuche.TabIndex = 3;
@@ -83,7 +83,7 @@
             // btnNewGame
             // 
             btnNewGame.ForeColor = SystemColors.ActiveCaptionText;
-            btnNewGame.Location = new Point(461, 361);
+            btnNewGame.Location = new Point(539, 431);
             btnNewGame.Name = "btnNewGame";
             btnNewGame.Size = new Size(112, 34);
             btnNewGame.TabIndex = 5;
@@ -95,7 +95,7 @@
             // 
             lblhuk.AutoSize = true;
             lblhuk.ForeColor = Color.White;
-            lblhuk.Location = new Point(775, 181);
+            lblhuk.Location = new Point(189, 280);
             lblhuk.Name = "lblhuk";
             lblhuk.Size = new Size(59, 25);
             lblhuk.TabIndex = 6;
@@ -108,7 +108,7 @@
             cmbSchwierigkeit.ForeColor = SystemColors.InactiveCaptionText;
             cmbSchwierigkeit.FormattingEnabled = true;
             cmbSchwierigkeit.Items.AddRange(new object[] { "Leicht", "Mittel", "Schwer" });
-            cmbSchwierigkeit.Location = new Point(731, 298);
+            cmbSchwierigkeit.Location = new Point(127, 372);
             cmbSchwierigkeit.Name = "cmbSchwierigkeit";
             cmbSchwierigkeit.Size = new Size(182, 33);
             cmbSchwierigkeit.TabIndex = 7;
@@ -118,7 +118,7 @@
             // 
             lblStatistik.AutoSize = true;
             lblStatistik.ForeColor = Color.White;
-            lblStatistik.Location = new Point(761, 384);
+            lblStatistik.Location = new Point(189, 424);
             lblStatistik.Name = "lblStatistik";
             lblStatistik.Size = new Size(59, 25);
             lblStatistik.TabIndex = 8;
@@ -128,7 +128,7 @@
             // 
             lstBestenliste.FormattingEnabled = true;
             lstBestenliste.Items.AddRange(new object[] { "Ergebnis()" });
-            lstBestenliste.Location = new Point(104, 206);
+            lstBestenliste.Location = new Point(434, 12);
             lstBestenliste.Name = "lstBestenliste";
             lstBestenliste.Size = new Size(338, 129);
             lstBestenliste.TabIndex = 9;
