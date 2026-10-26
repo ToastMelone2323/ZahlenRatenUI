@@ -19,6 +19,8 @@ namespace ZahlenRatenUI
         public Zahlraten()
         {
             InitializeComponent();
+            LadeBestenliste();
+            ZeigeBestenliste();
             cmbSchwierigkeit.SelectedIndex = 0;
             NeuesSpiel();
         }
@@ -192,6 +194,14 @@ namespace ZahlenRatenUI
         {
             string json = JsonSerializer.Serialize(bestenListe);
             File.WriteAllText(dataiPfad, json);
+        }
+        private void LadeBestenliste()
+        {
+            if (File.Exists(dataiPfad))
+            {
+                string json = File.ReadAllText(dataiPfad);
+                bestenListe = JsonSerializer.Deserialize<List<Ergebnis>>(json);
+            }
         }
     }
 }
