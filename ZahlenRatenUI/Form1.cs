@@ -157,6 +157,16 @@ namespace ZahlenRatenUI
             {
                 lstBestenliste.Items.Add(eintrag);
             }
+            int maxBreite = 0;
+            foreach (Ergebnis eintrag in bestenListe)
+            {
+                int breite = TextRenderer.MeasureText(eintrag.ToString(), lstBestenliste.Font).Width;
+                if (breite > maxBreite)
+                {
+                    maxBreite = breite;
+                }
+            }
+            lstBestenliste.Width = Math.Max(maxBreite + 20, 150);
         }
 
         private void btnNewGame_Click(object sender, EventArgs e)

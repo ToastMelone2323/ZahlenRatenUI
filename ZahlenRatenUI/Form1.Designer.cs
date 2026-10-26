@@ -43,6 +43,7 @@
             // 
             txtTipp.BorderStyle = BorderStyle.FixedSingle;
             txtTipp.Cursor = Cursors.IBeam;
+            txtTipp.ForeColor = SystemColors.ActiveCaptionText;
             txtTipp.Location = new Point(467, 223);
             txtTipp.Name = "txtTipp";
             txtTipp.Size = new Size(101, 31);
@@ -50,7 +51,7 @@
             // 
             // btnRaten
             // 
-            btnRaten.ForeColor = Color.White;
+            btnRaten.ForeColor = SystemColors.ActiveCaptionText;
             btnRaten.Location = new Point(467, 298);
             btnRaten.Name = "btnRaten";
             btnRaten.Size = new Size(101, 37);
@@ -81,7 +82,7 @@
             // 
             // btnNewGame
             // 
-            btnNewGame.ForeColor = Color.White;
+            btnNewGame.ForeColor = SystemColors.ActiveCaptionText;
             btnNewGame.Location = new Point(461, 361);
             btnNewGame.Name = "btnNewGame";
             btnNewGame.Size = new Size(112, 34);
@@ -104,6 +105,7 @@
             // 
             cmbSchwierigkeit.Cursor = Cursors.Cross;
             cmbSchwierigkeit.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbSchwierigkeit.ForeColor = SystemColors.InactiveCaptionText;
             cmbSchwierigkeit.FormattingEnabled = true;
             cmbSchwierigkeit.Items.AddRange(new object[] { "Leicht", "Mittel", "Schwer" });
             cmbSchwierigkeit.Location = new Point(731, 298);
@@ -128,7 +130,7 @@
             lstBestenliste.Items.AddRange(new object[] { "Ergebnis()" });
             lstBestenliste.Location = new Point(104, 206);
             lstBestenliste.Name = "lstBestenliste";
-            lstBestenliste.Size = new Size(180, 129);
+            lstBestenliste.Size = new Size(338, 129);
             lstBestenliste.TabIndex = 9;
             lstBestenliste.SelectedIndexChanged += lstBestenliste_SelectedIndexChanged;
             // 
