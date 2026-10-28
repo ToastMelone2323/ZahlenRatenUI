@@ -35,17 +35,20 @@ namespace ZahlenRatenUI
                 versuche++;
                 lblVersuche.Text = $"Versuche: {versuche}/{maxVersuche}";
                 string outcome = Pruefen(number, randomNumber);
+
                 if (outcome == "gleich")
                 {
                     lblMeldung.Text = $"Du hast die Zahl gefunden und {versuche} Versuche gebraucht";
                     siege++;
-                    bestenListe.Add(new Ergebnis { Versuche = versuche, Schwiereigkeit = cmbSchwierigkeit.SelectedItem.ToString(), Datum = DateTime.Now });
+                    bestenListe.Add(new Ergebnis { Versuche = versuche, Schwiereigkeit = cmbSchwierigkeit.SelectedItem?.ToString() ?? "Unbekannt", Datum = DateTime.Now });
                     ZeigeBestenliste();
                     SpeicherBestenliste();
+
                     if (bestLeistung == 0 || versuche < bestLeistung)
                     {
                         bestLeistung = versuche;
                     }
+
                     ZeigeStatistik();
                     btnRaten.Enabled = false;
                 }
@@ -67,6 +70,7 @@ namespace ZahlenRatenUI
                 }
 
                 string huk = HeisKalt(number, randomNumber);
+
                 if (huk == "sehr")
                 {
                     lblhuk.Text = "Du bist sehr nah dran";
@@ -84,6 +88,7 @@ namespace ZahlenRatenUI
             {
                 lblMeldung.Text = "Ungültige Eingabe";
             }
+
             txtTipp.Clear();
             txtTipp.Focus();
         }
@@ -109,6 +114,7 @@ namespace ZahlenRatenUI
             Random random = new Random();
             randomNumber = random.Next(1, 101);
             versuche = 0;
+
             if (cmbSchwierigkeit.SelectedIndex == 0)
             {
                 maxVersuche = 10;
@@ -121,6 +127,7 @@ namespace ZahlenRatenUI
             {
                 maxVersuche = 3;
             }
+
             btnRaten.Enabled = true;
             lblMeldung.Text = "Willkommen";
             lblVersuche.Text = $"Versuche: {versuche}/{maxVersuche}";
@@ -134,6 +141,7 @@ namespace ZahlenRatenUI
         static string HeisKalt(int number, int randomNumber)
         {
             int diff = Math.Abs(number - randomNumber);
+
             if (diff < 6 && number != randomNumber)
             {
                 return "sehr";
@@ -160,19 +168,24 @@ namespace ZahlenRatenUI
         public void ZeigeBestenliste()
         {
             lstBestenliste.Items.Clear();
+
             foreach (Ergebnis eintrag in bestenListe.OrderBy(x => x.Versuche).ThenBy(x => x.Schwiereigkeit))
             {
                 lstBestenliste.Items.Add(eintrag);
             }
+
             int maxBreite = 0;
+
             foreach (Ergebnis eintrag in bestenListe)
             {
                 int breite = TextRenderer.MeasureText(eintrag.ToString(), lstBestenliste.Font).Width;
+
                 if (breite > maxBreite)
                 {
                     maxBreite = breite;
                 }
             }
+
             lstBestenliste.Width = Math.Max(maxBreite + 20, 150);
         }
 
@@ -200,7 +213,11 @@ namespace ZahlenRatenUI
             if (File.Exists(dataiPfad))
             {
                 string json = File.ReadAllText(dataiPfad);
-                bestenListe = JsonSerializer.Deserialize<List<Ergebnis>>(json);
+                bestenListe = JsonSerializer.Deserialize<List<Ergebnis>>(json) ?? new List<Ergebnis>(); ;
+            }
+            else
+            {
+                
             }
         }
     }

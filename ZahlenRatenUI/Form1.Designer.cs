@@ -64,7 +64,7 @@
             // 
             lblMeldung.AutoSize = true;
             lblMeldung.ForeColor = Color.White;
-            lblMeldung.Location = new Point(177, 319);
+            lblMeldung.Location = new Point(127, 322);
             lblMeldung.Name = "lblMeldung";
             lblMeldung.Size = new Size(83, 25);
             lblMeldung.TabIndex = 2;
@@ -95,7 +95,7 @@
             // 
             lblhuk.AutoSize = true;
             lblhuk.ForeColor = Color.White;
-            lblhuk.Location = new Point(189, 280);
+            lblhuk.Location = new Point(139, 283);
             lblhuk.Name = "lblhuk";
             lblhuk.Size = new Size(59, 25);
             lblhuk.TabIndex = 6;
