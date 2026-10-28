@@ -15,7 +15,7 @@ namespace ZahlenRatenUI
         int loss;
         int bestLeistung;
         List<Ergebnis> bestenListe = new List<Ergebnis>();
-        string dataiPfad = "bestenliste.json";
+        readonly string dataiPfad = "bestenliste.json";
         public Zahlraten()
         {
             InitializeComponent();
@@ -214,10 +214,6 @@ namespace ZahlenRatenUI
             {
                 string json = File.ReadAllText(dataiPfad);
                 bestenListe = JsonSerializer.Deserialize<List<Ergebnis>>(json) ?? new List<Ergebnis>(); ;
-            }
-            else
-            {
-                
             }
         }
     }
